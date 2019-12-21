@@ -1,8 +1,10 @@
 package dao;
 
-import Util.JdbcHelper;
+
 import domain.*;
 import service.ContractService;
+import service.DepartmentService;
+import service.PositionService;
 
 import java.sql.*;
 import java.util.Collection;
@@ -20,7 +22,7 @@ public class StaffDao {
         public Collection<Staff> findAll() throws SQLException {
             TreeSet<Staff> staffTreeSet = new TreeSet<Staff>();
             //获取数据库连接对象
-            Connection connection = JdbcHelper.getConn();
+            Connection connection = util.JdbcHelper.getConn();
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery("select * from staff");
             //若结果集仍然有下一条记录，则执行循环体
@@ -36,13 +38,13 @@ public class StaffDao {
                         SalaryService.getInstance().find(resultSet.getInt("degree"))));
             }
             //执行预编译语句
-            JdbcHelper.close(resultSet, stmt, connection);
+            util.JdbcHelper.close(resultSet, stmt, connection);
             return staffTreeSet;
         }
 
         public Staff find(Integer id) throws SQLException {
             Staff staff = null;
-            Connection connection = JdbcHelper.getConn();
+            Connection connection = util.JdbcHelper.getConn();
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM staff WHERE id=?");
             //为预编译参数赋值
@@ -63,12 +65,12 @@ public class StaffDao {
                         SalaryService.getInstance().find(resultSet.getInt("degree")));
             }
             //关闭资源
-            JdbcHelper.close(resultSet, preparedStatement, connection);
+            util.JdbcHelper.close(resultSet, preparedStatement, connection);
             return staff;
         }
 
         public boolean update(Staff staff) throws SQLException{
-            Connection connection = JdbcHelper.getConn();
+            Connection connection = util.JdbcHelper.getConn();
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "UPDATE staff SET idCard=?,name=?, sex=?, phoneNumber=?, mail=?, nativePlace=?, " +
@@ -87,13 +89,13 @@ public class StaffDao {
             preparedStatement.setInt(11, staff.getId());
             //执行预编译语句，获取改变记录行数并赋值给affectedRowNum
             int affectedRowNum = preparedStatement.executeUpdate();
-            JdbcHelper.close(preparedStatement, connection);
+            util.JdbcHelper.close(preparedStatement, connection);
             return affectedRowNum > 0;
         }
 
     public boolean add(Staff staff) throws SQLException {
         //获取数据库连接对象
-        Connection connection = JdbcHelper.getConn();
+        Connection connection = util.JdbcHelper.getConn();
         //添加预编译语句
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO staff (idCard, staffId, name, sex, phoneNumber, mail, nativePlace," +
@@ -111,12 +113,12 @@ public class StaffDao {
         preparedStatement.setInt(11, staff.getEducation().getId());
         //执行预编译对象的executeUpdate()方法，获得删除行数
         int affectedRowNum = preparedStatement.executeUpdate();
-        JdbcHelper.close(preparedStatement, connection);
+        util.JdbcHelper.close(preparedStatement, connection);
         return affectedRowNum > 0;
         }
 
         public boolean delete(Integer id) throws SQLException {
-            Connection connection = JdbcHelper.getConn();
+            Connection connection = util.JdbcHelper.getConn();
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM staff WHERE id=?");
             //为预编译参数赋值
@@ -124,7 +126,7 @@ public class StaffDao {
             //执行预编译语句，获取删除记录行数并赋值给affectedRowNum
             int affectedRows = preparedStatement.executeUpdate();
             //关闭资源
-            JdbcHelper.close(preparedStatement, connection);
+            util.JdbcHelper.close(preparedStatement, connection);
             return affectedRows>0;
     }
 
