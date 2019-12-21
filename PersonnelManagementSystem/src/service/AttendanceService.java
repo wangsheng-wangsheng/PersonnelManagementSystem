@@ -5,7 +5,6 @@ import domain.Staff;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
-
 public final class AttendanceService {
     private static AttendanceDao attendanceDao= AttendanceDao.getInstance();
     private static AttendanceService attendanceService=new AttendanceService();

@@ -3,7 +3,6 @@ import dao.DepartmentDao;
 import domain.Department;
 import java.sql.SQLException;
 import java.util.Collection;
-
 public final class DepartmentService {
     private static DepartmentDao departmentDao= DepartmentDao.getInstance();
     private static DepartmentService departmentService=new DepartmentService();

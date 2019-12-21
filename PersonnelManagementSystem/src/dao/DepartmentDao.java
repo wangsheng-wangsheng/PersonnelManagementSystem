@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.TreeSet;
-
 public final class DepartmentDao {
     private static Collection<Department> departments = new TreeSet<Department>();
     private static DepartmentDao departmentDao=new DepartmentDao();

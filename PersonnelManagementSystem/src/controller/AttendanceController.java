@@ -1,5 +1,5 @@
 package controller;
-import Util.JSONUtil;
+import util.JSONUtil;
 import domain.Attendance;
 import service.AttendanceService;
 import com.alibaba.fastjson.JSON;

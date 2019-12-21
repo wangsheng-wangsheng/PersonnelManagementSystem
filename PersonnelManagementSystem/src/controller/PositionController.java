@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
-
 /**
  * 将所有方法组织在一个Controller(Servlet)中
  */

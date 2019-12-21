@@ -25,6 +25,33 @@ public class Assess
 	 * @ordered
 	 */
 	
+	private String assessmentStartDate;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String assessmentEndDate;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String professionalSkill;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String workAttitude;
 
 	/**
@@ -34,7 +61,7 @@ public class Assess
 	 * @ordered
 	 */
 	
-	private String assessTime;
+	private String workPerformance;
 
 	/**
 	 * <!-- begin-user-doc -->

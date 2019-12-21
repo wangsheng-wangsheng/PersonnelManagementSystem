@@ -7,17 +7,8 @@ package domain;
  * @generated
  */
 
-public class Staff extends Actor
+public class Staff
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private int idCard;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -43,6 +34,15 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
+	private String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String sex;
 
 	/**
@@ -52,7 +52,34 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
+	private int idCard;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String nativePlace;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private int phoneNumber;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String mail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,6 +115,15 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
+	public Salary salary;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	public Education education;
 
 	/**
@@ -99,8 +135,56 @@ public class Staff extends Actor
 		super();
 	}
 
-
 	public int getId() {
 		return id;
 	}
+
+	public int getStaffId() {
+		return staffId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public int getIdCard() {
+		return idCard;
+	}
+
+	public String getNativePlace() {
+		return nativePlace;
+	}
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public Contranct getContranct() {
+		return contranct;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public Salary getSalary() {
+		return salary;
+	}
+
+	public Education getEducation() {
+		return education;
+	}
 }
+

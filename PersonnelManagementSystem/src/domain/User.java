@@ -43,7 +43,7 @@ public class User
 	 * @ordered
 	 */
 	
-	public Actor actor;
+	public Staff staff;
 
 	/**
 	 * <!-- begin-user-doc -->

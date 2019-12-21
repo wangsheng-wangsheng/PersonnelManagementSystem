@@ -6,16 +6,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.TreeSet;
 public final class PositionDao {
-    private static PositionDao positionDao =
-            new PositionDao();
-
+    private static PositionDao positionDao = new PositionDao();
     private PositionDao() {
     }
-
     public static PositionDao getInstance() {
         return positionDao;
     }
-
     private static Collection<Position> positions = new TreeSet<Position>();
     public Collection<Position> findAll() throws SQLException {
 

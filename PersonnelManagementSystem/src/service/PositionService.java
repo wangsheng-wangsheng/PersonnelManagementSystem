@@ -3,7 +3,6 @@ import dao.PositionDao;
 import domain.Position;
 import java.sql.SQLException;
 import java.util.Collection;
-
 public final class PositionService {
     private static PositionDao positionDao
             = PositionDao.getInstance();
