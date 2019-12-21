@@ -6,8 +6,7 @@ package domain;
  * @generated
  */
 
-public class Actor
-{
+public class Actor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
