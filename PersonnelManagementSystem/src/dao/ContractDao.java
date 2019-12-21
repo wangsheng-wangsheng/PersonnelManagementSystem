@@ -1,6 +1,6 @@
 package dao;
 
-import Util.JdbcHelper;
+import util.JdbcHelper;
 import domain.Contract;
 
 import java.sql.*;
