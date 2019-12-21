@@ -7,7 +7,7 @@ package domain;
  * @generated
  */
 
-public class Administrator extends Actor
+public class Administrator
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -17,6 +17,24 @@ public class Administrator extends Actor
 	 */
 	
 	private int id;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String password;
 
 	/**
 	 * <!-- begin-user-doc -->

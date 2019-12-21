@@ -1,6 +1,5 @@
 package domain;
 
-
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->

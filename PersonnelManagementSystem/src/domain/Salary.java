@@ -34,7 +34,7 @@ public class Salary
 	 * @ordered
 	 */
 	
-	private int overtime;
+	private String overtimePay;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,15 +80,6 @@ public class Salary
 	 */
 	
 	private String time;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Staff staff;
 
 	/**
 	 * <!-- begin-user-doc -->

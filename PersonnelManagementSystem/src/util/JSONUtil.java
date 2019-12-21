@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
