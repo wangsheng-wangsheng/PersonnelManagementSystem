@@ -99,5 +99,8 @@ public class Staff extends Actor
 		super();
 	}
 
-}
 
+	public int getId() {
+		return id;
+	}
+}

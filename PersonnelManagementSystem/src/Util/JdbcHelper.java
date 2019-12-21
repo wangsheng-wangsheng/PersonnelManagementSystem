@@ -7,7 +7,7 @@ import java.sql.*;
  */
 public final class JdbcHelper {
 	//private static String url =
-	// "jdbc:sqlserver://localhost:1433;databaseName=bysjs;SelectMethod=Cursor;";
+	// "jdbc:sqlserver://localhost:1433;databaseName=ccsj;SelectMethod=Cursor;";
 	private static String url = "jdbc:mysql://localhost:3306/ccsj" +
 			"?useUnicode=true&characterEncoding=utf8&useSSL=true";
 	private static String user = "root";
