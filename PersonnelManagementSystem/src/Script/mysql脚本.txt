@@ -15,7 +15,7 @@ startTime date not null,
 endTime date not null,
 signTimes bigint not null,
 signStatus varchar(255) not null,
-ifWork boolean not null
+ifWork varchar(2) not null
 );
 Create table position (
 id int primary key auto_increment,
@@ -35,7 +35,6 @@ department_id int not null,
 education_id int not null,
 contranct_id int not null,
 position_id int not null,
-salary_id int not null, 
 foreign key(department_id) references department(id) ,
 foreign key(education_id) references education(id) ,
 foreign key(contranct_id) references contranct(id) ,
