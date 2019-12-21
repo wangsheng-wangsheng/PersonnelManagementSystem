@@ -7,6 +7,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="PersonnelManagementSystem" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/PersonnelManagementSystem/web/lib/mysql-connector-java-8.0.18.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/PersonnelManagementSystem/web/lib/fastjson-1.2.62.jar" />
+        </element>
       </element>
     </root>
   </artifact>
