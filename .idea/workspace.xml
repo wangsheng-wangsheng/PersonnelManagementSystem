@@ -7,24 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="933e7607-b300-4ec3-bb1d-21f15a01e93c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/Script/mysql脚本.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/Script/mysql脚本.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/AttendanceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/PositionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/AttendanceDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/DepartmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/PositionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/StaffDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/domain/Education.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/domain/Education.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/domain/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/domain/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/domain/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/AttendanceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/PositionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/service/StaffService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,22 +184,12 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:ccsj@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2d33d532" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@538ebdcb" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:ccsj@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@51c6a0c4" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:ccsj@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@17f47a70" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:ccsj@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@7a4a1a12" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2544d7a8" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -238,7 +211,7 @@
       <workItem from="1576922671052" duration="9056000" />
       <workItem from="1576940225597" duration="3622000" />
       <workItem from="1576991878679" duration="13568000" />
-      <workItem from="1577013027741" duration="5688000" />
+      <workItem from="1577013027741" duration="6453000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交position和department的controller，service，dao，domain">
       <created>1576939827776</created>
@@ -268,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577008673108</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="（1）修改mysql语句 将position改为job&#10;（2）删除position实体 改为Job实体&#10;（3）添加Job、Department、Leader各实体的 dao、controller和service&#10;（4）已用postman做过测试，增删改查全部通过&#10;（5）添加设置字符编码的Filter10">
+      <created>1577018956449</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577018956449</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +258,8 @@
     <MESSAGE value="第一次提交position和department的controller，service，dao，domain" />
     <MESSAGE value="第一次提交职务和部门的controller，service，dao" />
     <MESSAGE value="（1）修改mysql语句 增加了leader这个实体 员工关联职位 职位关联部门 部门关联领导&#10;（2）将genmymodel导出实体，修改domain" />
-    <option name="LAST_COMMIT_MESSAGE" value="（1）修改mysql语句 增加了leader这个实体 员工关联职位 职位关联部门 部门关联领导&#10;（2）将genmymodel导出实体，修改domain" />
+    <MESSAGE value="（1）修改mysql语句 将position改为job&#10;（2）删除position实体 改为Job实体&#10;（3）添加Job、Department、Leader各实体的 dao、controller和service&#10;（4）已用postman做过测试，增删改查全部通过&#10;（5）添加设置字符编码的Filter10" />
+    <option name="LAST_COMMIT_MESSAGE" value="（1）修改mysql语句 将position改为job&#10;（2）删除position实体 改为Job实体&#10;（3）添加Job、Department、Leader各实体的 dao、controller和service&#10;（4）已用postman做过测试，增删改查全部通过&#10;（5）添加设置字符编码的Filter10" />
   </component>
   <component name="WindowStateProjectService">
     <state x="135" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577014347700">
@@ -297,30 +278,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="256" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577018170699" />
-    <state x="116" y="0" key="CommitChangelistDialog2" timestamp="1577008672152">
+    <state x="262" y="0" key="CommitChangelistDialog2" timestamp="1577019492192">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="116" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577008672152" />
+    <state x="262" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577019492192" />
     <state x="792" y="204" key="FileChooserDialogImpl" timestamp="1576923502613">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="792" y="204" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576923502613" />
-    <state width="908" height="168" key="GridCell.Tab.0.bottom" timestamp="1577018530411">
+    <state width="906" height="168" key="GridCell.Tab.0.bottom" timestamp="1577019087481">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="908" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577018530411" />
-    <state width="908" height="168" key="GridCell.Tab.0.center" timestamp="1577018530411">
+    <state width="906" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577019087481" />
+    <state width="906" height="168" key="GridCell.Tab.0.center" timestamp="1577019087481">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="908" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577018530411" />
-    <state width="908" height="168" key="GridCell.Tab.0.left" timestamp="1577018530411">
+    <state width="906" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577019087481" />
+    <state width="906" height="168" key="GridCell.Tab.0.left" timestamp="1577019087481">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="908" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577018530411" />
-    <state width="908" height="168" key="GridCell.Tab.0.right" timestamp="1577018530411">
+    <state width="906" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577019087481" />
+    <state width="906" height="168" key="GridCell.Tab.0.right" timestamp="1577019087481">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="908" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577018530411" />
+    <state width="906" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577019087481" />
     <state width="908" height="168" key="GridCell.Tab.1.bottom" timestamp="1577018530411">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -357,10 +338,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="246" y="127" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1577008465768" />
-    <state x="152" y="159" width="814" height="529" key="Vcs.Push.Dialog.v2" timestamp="1577008680916">
+    <state x="152" y="159" width="814" height="529" key="Vcs.Push.Dialog.v2" timestamp="1577018968142">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="152" y="159" width="814" height="529" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577008680916" />
+    <state x="152" y="159" width="814" height="529" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577018968142" />
     <state x="491" y="306" width="340" height="236" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1576998192243">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
