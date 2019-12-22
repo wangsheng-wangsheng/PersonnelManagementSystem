@@ -28,15 +28,20 @@ public class StaffDao {
             ResultSet resultSet = stmt.executeQuery("select * from staff");
             //若结果集仍然有下一条记录，则执行循环体
             while (resultSet.next()) {
-                staffTreeSet.add(new Staff(resultSet.getInt("id"), resultSet.getString("staffId"),
-                        resultSet.getString("name"),resultSet.getString("sex"),
-                        resultSet.getString("nativePlace"),resultSet.getString("idCard"),
+                staffTreeSet.add(new Staff(
+                        resultSet.getString("idCard"),
+                        resultSet.getInt("id"),
+                        resultSet.getInt("staffId"),
+                        resultSet.getString("name"),
+                        resultSet.getString("sex"),
+                        resultSet.getString("phoneNumber"),
                         resultSet.getString("mail"),
+                        resultSet.getString("nativePlace"),
                         DepartmentService.getInstance().find(resultSet.getInt("department")),
-                        EducationService.getInstance().find(resultSet.getInt("title")),
                         ContractService.getInstance().find(resultSet.getInt("degree")),
                         PositionService.getInstance().find(resultSet.getInt("degree")),
-                        SalaryService.getInstance().find(resultSet.getInt("degree"))));
+                        EducationService.getInstance().find(resultSet.getInt("title"))
+                ));
             }
             //执行预编译语句
             util.JdbcHelper.close(resultSet, stmt, connection);
@@ -55,15 +60,20 @@ public class StaffDao {
             //若结果集有一条记录，则以当前记录中的id,name,title,department,degree值为参数，创建对象
             //若结果集中没有记录，则本方法返回null
             if (resultSet.next()) {
-                staff = new Staff(resultSet.getInt("id"), resultSet.getString("staffId"),
-                        resultSet.getString("name"),resultSet.getString("sex"),
-                        resultSet.getString("nativePlace"),resultSet.getString("idCard"),
+                staff = new Staff(
+                        resultSet.getString("idCard"),
+                        resultSet.getInt("id"),
+                        resultSet.getInt("staffId"),
+                        resultSet.getString("name"),
+                        resultSet.getString("sex"),
+                        resultSet.getString("phoneNumber"),
                         resultSet.getString("mail"),
+                        resultSet.getString("nativePlace"),
                         DepartmentService.getInstance().find(resultSet.getInt("department")),
-                        EducationService.getInstance().find(resultSet.getInt("title")),
                         ContractService.getInstance().find(resultSet.getInt("degree")),
                         PositionService.getInstance().find(resultSet.getInt("degree")),
-                        SalaryService.getInstance().find(resultSet.getInt("degree")));
+                        EducationService.getInstance().find(resultSet.getInt("title"))
+                );
             }
             //关闭资源
             util.JdbcHelper.close(resultSet, preparedStatement, connection);
