@@ -4,6 +4,7 @@ package dao;
 import domain.*;
 import service.ContractService;
 import service.DepartmentService;
+import service.EducationService;
 import service.PositionService;
 
 import java.sql.*;
@@ -107,7 +108,7 @@ public class StaffDao {
         preparedStatement.setString(5, staff.getPhoneNumber());
         preparedStatement.setString(6, staff.getMail());
         preparedStatement.setString(7, staff.getNativePlace());
-        preparedStatement.setInt(8, staff.getDepartment().getId);
+        preparedStatement.setInt(8, staff.getDepartment().getId());
         preparedStatement.setInt(9, staff.getContract().getId());
         preparedStatement.setInt(10, staff.getPosition().getId());
         preparedStatement.setInt(11, staff.getEducation().getId());
