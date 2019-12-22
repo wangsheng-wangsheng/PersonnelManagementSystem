@@ -76,7 +76,7 @@ public class EducationDao {
         Connection connection = JdbcHelper.getConn();
         //根据连接对象准备语句对象
         //SQL语句为多行时，注意语句不同部分之间有空格
-        PreparedStatement pstmt = connection.prepareStatement("insert into education" + "name" + " values (?)");
+        PreparedStatement pstmt = connection.prepareStatement("insert into education" + "(name)" + " values (?)");
         //为预编译参数赋值
         pstmt.setString(1, education.getName());
         //执行预编译对象的executeUpdate方法，获取添加的记录行数

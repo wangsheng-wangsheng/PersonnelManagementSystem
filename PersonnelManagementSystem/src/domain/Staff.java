@@ -106,7 +106,11 @@ public class Staff extends Actor
 	
 	public Education education;
 
-	public Staff(int id, String name, User user, int id1, int staffId, String name1, String sex, String idCard, String nativePlace, String phoneNumber, String mail, Contract contract, Job job, Education education) {
+	public Staff(int id, String name, User user, int id1,
+				 int staffId, String name1, String sex,
+				 String idCard, String nativePlace,
+				 String phoneNumber, String mail, Contract contract,
+				 Job job, Education education) {
 		super(id, name, user);
 		this.id = id1;
 		this.staffId = staffId;
