@@ -31,10 +31,10 @@ public class PositionController extends HttpServlet {
      * get 查找
      */
     //请使用以下JSON测试增加功能
-    //{"name":"经理","remarks":""}
+    //{"name":"经理","remarks":"","department_id":1}
 
     //请使用以下JSON测试修改功能
-    //{"name":"副经理","id":1,"remarks":""}
+    //{"name":"副经理","id":1,"remarks":"","department_id":1}
     /**
      * POST,http://localhost:8080/position.ctl
      * 增加一个考勤对象：将来自前端请求的JSON对象，增加到数据库表中

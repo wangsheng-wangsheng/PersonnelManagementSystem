@@ -1,6 +1,5 @@
 package dao;
 import domain.Department;
-import service.StaffService;
 import util.JdbcHelper;
 import java.sql.*;
 import java.util.Collection;
@@ -31,9 +30,9 @@ public final class DepartmentDao {
             departments.add(new Department(
                     resultSet.getInt("id"),
                     resultSet.getString("name"),
+                    resultSet.getString("leader"),
                     resultSet.getString("address"),
-                    resultSet.getString("remarks"),
-                    StaffService.getInstance().find(resultSet.getInt("staff_id"))
+                    resultSet.getString("remarks")
             ));
         }
         //使用JdbcHelper关闭Connection对象
@@ -60,9 +59,9 @@ public final class DepartmentDao {
             department = new Department(
                     resultSet.getInt("id"),
                     resultSet.getString("name"),
+                    resultSet.getString("leader"),
                     resultSet.getString("address"),
-                    resultSet.getString("remarks"),
-                    StaffService.getInstance().find(resultSet.getInt("staff_id"))
+                    resultSet.getString("remarks")
             );
         }
         //关闭资源
@@ -73,14 +72,14 @@ public final class DepartmentDao {
         //获取数据库连接对象
         Connection connection = JdbcHelper.getConn();
         //创建sql语句
-        String updateDepartment_sql = "UPDATE department SET name=?,address=?,remarks=?, staff_id=? WHERE id=?";
+        String updateDepartment_sql = "UPDATE department SET name=?,leader=?,address=?,remarks=? WHERE id=?";
         //在该连接上创建预编译语句对象
         PreparedStatement preparedStatement = connection.prepareStatement(updateDepartment_sql);
         //为预编译参数赋值
         preparedStatement.setString(1,department.getName());
-        preparedStatement.setString(2,department.getAddress());
-        preparedStatement.setString(3,department.getRemarks());
-        preparedStatement.setInt(4,department.getStaff().getId());
+        preparedStatement.setString(2,department.getLeader());
+        preparedStatement.setString(3,department.getAddress());
+        preparedStatement.setString(4,department.getRemarks());
         preparedStatement.setInt(5,department.getId());
         //执行预编译语句
         int affectedRows = preparedStatement.executeUpdate();
@@ -96,13 +95,13 @@ public final class DepartmentDao {
         //SQL语句为多行时，注意语句不同部分之间有空格
         PreparedStatement pstmt =
                 connection.prepareStatement("INSERT INTO department" +
-                        "(name,address,remarks,staff_id)"
+                        "(name,leader,address,remarks)"
                         + " VALUES (?,?,?,?)");
         //为预编译参数赋值
         pstmt.setString(1,department.getName());
-        pstmt.setString(2,department.getAddress());
-        pstmt.setString(3,department.getRemarks());
-        pstmt.setInt(4,department.getStaff().getId());
+        pstmt.setString(2,department.getLeader());
+        pstmt.setString(3,department.getAddress());
+        pstmt.setString(4,department.getRemarks());
         //执行预编译对象的executeUpdate方法，获取添加的记录行数
         //执行预编译语句，用其返回值、影响的行数为赋值affectedRowNum
         int affectedRowNum = pstmt.executeUpdate();
@@ -126,33 +125,6 @@ public final class DepartmentDao {
         //关闭pstmt, connection对象（关闭资源）
         JdbcHelper.close(pstmt,connection);
         return affectedRowNum > 0;
-    }
-    public boolean delete(Department department)throws SQLException{
-        return delete(department.getId());
-    }
-    public Collection<Department> findAllByStaff(Integer staffId) throws SQLException {
-        departments = new HashSet<Department>();
-        //获取数据库连接对象
-        Connection connection = JdbcHelper.getConn();
-        String findDepartments ="SELECT * FROM department WHERE staff_id=?";
-        //在该连接上创建预编译语句对象
-        PreparedStatement preparedStatement = connection.prepareStatement(findDepartments);
-        preparedStatement.setInt(1,staffId);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //若结果集仍然有下一条记录，则执行循环体
-        while (resultSet.next()){
-            departments.add(new Department(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getString("address"),
-                    resultSet.getString("remarks"),
-                    StaffService.getInstance().find(resultSet.getInt("staff_id"))
-            ));
-        }
-        //使用JdbcHelper关闭Connection对象
-        JdbcHelper.close(resultSet,preparedStatement,connection);
-        //返回degrees
-        return departments;
     }
 }
 

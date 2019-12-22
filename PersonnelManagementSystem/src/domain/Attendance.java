@@ -1,5 +1,6 @@
 package domain;
 
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -49,10 +50,6 @@ public class Attendance
      * <!--  end-user-doc  -->
      * @generated
      */
-    public Attendance(){
-        super();
-    }
-
     public Attendance(int id, String attendanceTime, String remarks, Staff staff) {
         this.id = id;
         this.attendanceTime = attendanceTime;
@@ -92,3 +89,4 @@ public class Attendance
         this.staff = staff;
     }
 }
+

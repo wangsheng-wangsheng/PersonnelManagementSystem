@@ -1,5 +1,6 @@
 package domain;
 
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -39,15 +40,21 @@ public class Position
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
+	 * @ordered
 	 */
-	public Position(){
-		super();
-	}
+	
+	public Department department;
 
-	public Position(int id, String name, String remarks) {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 */
+	public Position(int id, String name, String remarks, Department department) {
 		this.id = id;
 		this.name = name;
 		this.remarks = remarks;
+		this.department = department;
 	}
 
 	public int getId() {
@@ -62,6 +69,10 @@ public class Position
 		return remarks;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -72,6 +83,10 @@ public class Position
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 }
 

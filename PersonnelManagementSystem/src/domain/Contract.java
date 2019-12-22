@@ -7,12 +7,60 @@ package domain;
  * @generated
  */
 
-public class Contract {
+public class Contract
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private int id;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String startTime;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String endTime;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private int signTimes;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String signStatus;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String ifWork;
 
 	/**
@@ -20,22 +68,13 @@ public class Contract {
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public Contract(){
-		super();
-	}
-	public Contract(String startTime, String endTime, int signTimes,
-					String signStatus, String ifWork){
-		super();
+	public Contract(int id, String startTime, String endTime, int signTimes, String signStatus, String ifWork) {
+		this.id = id;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.signTimes = signTimes;
 		this.signStatus = signStatus;
 		this.ifWork = ifWork;
-	}
-	public Contract(int id, String startTime, String endTime,
-					int signTimes, String signStatus, String ifWork){
-		this(startTime,endTime,signTimes,signStatus,ifWork);
-		this.id = id;
 	}
 
 	public int getId() {
@@ -84,21 +123,6 @@ public class Contract {
 
 	public void setIfWork(String ifWork) {
 		this.ifWork = ifWork;
-	}
-
-	public String toString()
-	{
-		final String TAB = "    ";
-		String retValue = "Contract ( "
-				+ super.toString() + TAB
-				+ "id = " + this.id + TAB
-				+ "startTime = " + this.startTime + TAB
-				+ "endTime = " + this.endTime + TAB
-				+ "signTimes = " + this.signStatus + TAB
-				+ "signStatus = " + this.signStatus + TAB
-				+ "ifwork = " + this.ifWork + TAB
-				+ " )";
-		return retValue;
 	}
 }
 

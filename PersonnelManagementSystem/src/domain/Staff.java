@@ -1,4 +1,6 @@
 package domain;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -7,56 +9,174 @@ package domain;
  * @generated
  */
 
-public class Staff extends Actor {
-	private String idCard;
+public class Staff extends Actor
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private int id;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private int staffId;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String sex;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private String idCard;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String nativePlace;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String phoneNumber;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	private String mail;
-	public Department department;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	public Contract contract;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	public Position position;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
 	public Education education;
 
-	public Staff(){
-		super();
-	}
-	public Staff(String idCard, int staffId,String name,
-				 String sex, String phoneNumber, String mail,
-				 String nativePlace, Department department,
-				 Contract contract, Position position,
-				 Education education){
-		super();
-		this.idCard = idCard;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 */
+	public Staff(int id, String name, User user, int id1, int staffId, String name1, String sex, String idCard, String nativePlace, String phoneNumber, String mail, Contract contranct, Position position, Education education) {
+		super(id, name, user);
+		this.id = id1;
 		this.staffId = staffId;
+		this.name = name1;
 		this.sex = sex;
-		this.name = name;
+		this.idCard = idCard;
+		this.nativePlace = nativePlace;
 		this.phoneNumber = phoneNumber;
 		this.mail = mail;
-		this.nativePlace = nativePlace;
-		this.department = department;
 		this.contract = contract;
 		this.position = position;
 		this.education = education;
 	}
 
-	public Staff(String idCard, int id, int staffId, String name,
-				 String sex, String phoneNumber, String mail,
-				 String nativePlace, Department department,
-				 Contract contranct, Position position,
-				 Education education){
-		this(idCard, staffId, name, sex, phoneNumber, mail,
-				nativePlace, department, contranct,position, education);
+	@Override
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getIdCard() {
-		return idCard;
+	public void setStaffId(int staffId) {
+		this.staffId = staffId;
 	}
 
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public void setNativePlace(String nativePlace) {
+		this.nativePlace = nativePlace;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public void setEducation(Education education) {
+		this.education = education;
+	}
+
+	@Override
 	public int getId() {
 		return id;
 	}
@@ -65,6 +185,7 @@ public class Staff extends Actor {
 		return staffId;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -73,20 +194,20 @@ public class Staff extends Actor {
 		return sex;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public String getMail() {
-		return mail;
+	public String getIdCard() {
+		return idCard;
 	}
 
 	public String getNativePlace() {
 		return nativePlace;
 	}
 
-	public Department getDepartment() {
-		return department;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public String getMail() {
+		return mail;
 	}
 
 	public Contract getContract() {
@@ -100,20 +221,5 @@ public class Staff extends Actor {
 	public Education getEducation() {
 		return education;
 	}
-
-
-	public String toString()
-	{
-		final String TAB = "    ";
-		String retValue = "STAFF ( "
-				+ super.toString() + TAB
-				+ "id = " + this.id + TAB
-				+ "staffId = " + this.staffId + TAB
-				+ "IdCard = " + this.idCard + TAB
-				+ "nativePlace = " + this.nativePlace + TAB
-				+ "degree = " + this.education + TAB
-				+ "department = " + this.department + TAB
-				+ " )";
-		return retValue;
-	}
 }
+

@@ -1,6 +1,6 @@
 package service;
 import dao.PositionDao;
-import domain.Position;
+
 import java.sql.SQLException;
 import java.util.Collection;
 public final class PositionService {
@@ -26,11 +26,7 @@ public final class PositionService {
         positionDao.add(position);
     }
     public boolean delete(Integer id) throws SQLException{
-        Position position = this.find(id);
-        return this.delete(position);
-    }
-    public boolean delete(Position position) throws SQLException{
-        return positionDao.delete(position);
+        return positionDao.delete(id);
     }
 }
 

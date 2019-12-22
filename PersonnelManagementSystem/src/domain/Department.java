@@ -1,10 +1,12 @@
 package domain;
 
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
  * @generated
  */
+
 public class Department
 {
 	/**
@@ -31,15 +33,6 @@ public class Department
 	 * @generated
 	 * @ordered
 	 */
-
-	private String address;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	private String remarks;
 
@@ -50,23 +43,18 @@ public class Department
 	 * @ordered
 	 */
 	
-	public Staff staff;
+	public Leader leader;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public Department(){
-		super();
-	}
-
-	public Department(int id, String name, String address, String remarks, Staff staff) {
+	public Department(int id, String name, String remarks, Leader leader) {
 		this.id = id;
 		this.name = name;
-		this.address = address;
 		this.remarks = remarks;
-		this.staff = staff;
+		this.leader = leader;
 	}
 
 	public int getId() {
@@ -81,16 +69,8 @@ public class Department
 		return remarks;
 	}
 
-	public Staff getStaff() {
-		return staff;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public Leader getLeader() {
+		return leader;
 	}
 
 	public void setId(int id) {
@@ -105,8 +85,8 @@ public class Department
 		this.remarks = remarks;
 	}
 
-	public void setStaff(Staff staff) {
-		this.staff = staff;
+	public void setLeader(Leader leader) {
+		this.leader = leader;
 	}
 }
 

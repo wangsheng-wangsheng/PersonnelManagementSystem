@@ -1,5 +1,5 @@
 package dao;
-import domain.Position;
+import service.DepartmentService;
 import util.JdbcHelper;
 import java.sql.*;
 import java.util.Collection;
@@ -24,7 +24,8 @@ public final class PositionDao {
         while (resultSet.next()){
             positions.add(new Position(resultSet.getInt("id"),
                     resultSet.getString("name"),
-                    resultSet.getString("remarks")));
+                    resultSet.getString("remarks"),
+                    DepartmentService.getInstance().find(resultSet.getInt("department_id"))));
         }
         //使用JdbcHelper关闭Connection对象
         JdbcHelper.close(stmt,connection);
@@ -46,7 +47,8 @@ public final class PositionDao {
         if (resultSet.next()){
             position = new Position(resultSet.getInt("id"),
                     resultSet.getString("name"),
-                    resultSet.getString("remarks"));
+                    resultSet.getString("remarks"),
+                    DepartmentService.getInstance().find(resultSet.getInt("department_id")));
         }
         //关闭资源
         JdbcHelper.close(resultSet,preparedStatement,connection);
@@ -56,13 +58,14 @@ public final class PositionDao {
     public boolean update(Position position) throws SQLException {
         Connection connection = JdbcHelper.getConn();
         //写sql语句
-        String updatePosition_sql = " UPDATE position SET name=?,remarks=? WHERE id=?";
+        String updatePosition_sql = " UPDATE position SET name=?,remarks=?, department_id=? WHERE id=?";
         //在该连接上创建预编译语句对象
         PreparedStatement preparedStatement = connection.prepareStatement(updatePosition_sql);
         //为预编译参数赋值
         preparedStatement.setString(1,position.getName());
         preparedStatement.setString(2,position.getRemarks());
-        preparedStatement.setInt(3,position.getId());
+        preparedStatement.setInt(3,position.getDepartment().getId());
+        preparedStatement.setInt(4,position.getId());
         //执行预编译语句，获取改变记录行数并赋值给affectedRowNum
         int affectedRows = preparedStatement.executeUpdate();
         System.out.println("更新"+affectedRows+"条记录");
@@ -76,10 +79,11 @@ public final class PositionDao {
         Connection connection = JdbcHelper.getConn();
         //根据连接对象准备语句对象
         //SQL语句为多行时，注意语句不同部分之间有空格
-        PreparedStatement pstmt = connection.prepareStatement("insert into position" + "(name,remarks)" + " values (?,?)");
+        PreparedStatement pstmt = connection.prepareStatement("insert into position" + "(name,remarks,department_id)" + " values (?,?,?)");
         //为预编译参数赋值
         pstmt.setString(1, position.getName());
         pstmt.setString(2, position.getRemarks());
+        pstmt.setInt(3, position.getDepartment().getId());
         //执行预编译对象的executeUpdate方法，获取添加的记录行数
         //执行预编译语句，用其返回值、影响的行数为赋值affectedRowNum
         int affectedRowNum = pstmt.executeUpdate();
@@ -106,9 +110,6 @@ public final class PositionDao {
         //关闭pstmt, connection对象（关闭资源）
         JdbcHelper.close(pstmt,connection);
         return affectedRowNum > 0;
-    }
-    public boolean delete(Position position)throws SQLException {
-        return delete(position.getId());
     }
 }
 

@@ -1,6 +1,6 @@
 package service;
 import dao.DepartmentDao;
-import domain.Department;
+
 import java.sql.SQLException;
 import java.util.Collection;
 public final class DepartmentService {
@@ -24,14 +24,7 @@ public final class DepartmentService {
         return departmentDao.add(department);
     }
     public boolean delete(Integer id) throws SQLException{
-        Department department = this.find(id);
-        return departmentDao.delete(department);
-    }
-    public boolean delete(Department department)throws SQLException{
-        return departmentDao.delete(department);
-    }
-    public Collection<Department> findAllByStaff(Integer staff_id) throws SQLException {
-        return departmentDao.findAllByStaff(staff_id);
+        return departmentDao.delete(id);
     }
 }
 

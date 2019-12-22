@@ -32,10 +32,10 @@ public class DepartmentController extends HttpServlet {
      * get 查找
      */
     //请使用以下JSON测试增加功能
-    //{"name":"人事部","remarks":"","staff_id":"1"}
+    //{"name":"人事部","leader":"hhh","remarks":"}
 
     //请使用以下JSON测试修改功能
-    //{"id":1,"name":"人事部","remarks":"","staff_id":"1"}
+    //{"id":1,"name":"人事部","leader":"hhh","remarks":""}
     /**
      * POST,http://localhost:8080/department.ctl
      * 增加一个部门对象：将来自前端请求的JSON对象，增加到数据库表中
@@ -100,8 +100,6 @@ public class DepartmentController extends HttpServlet {
         //响应message到前端
         response.getWriter().println(message);
     }
-
-
     /**
      * PUT, http://localhost:8080/department.ctl
      * 修改一个部门对象：将来自前端请求的JSON对象，更新数据库表中相同id的记录
@@ -151,15 +149,11 @@ public class DepartmentController extends HttpServlet {
         JSONObject message = new JSONObject();
         try {
             //如果id = null, 表示响应所有部门对象，否则响应id指定的部门对象
-            if (id_str == null&&staff_str==null) {
+            if (id_str == null) {
                 responseDepartments(response);
             }else {
                 int id = Integer.parseInt(id_str);
-                if(staff_str==null) {
-                    responseDepartment(id, response);
-                }else if(staff_str.equals("staffId")){
-                    responseDepSch(id, response);
-                }
+                responseDepartment(id, response);
             }
         }catch (SQLException e){
             message.put("message", "数据库操作异常");
@@ -186,15 +180,6 @@ public class DepartmentController extends HttpServlet {
             throws ServletException, IOException, SQLException {
         //获得所有部门
         Collection<Department> departments = DepartmentService.getInstance().findAll();
-        String departments_json = JSON.toJSONString(departments, SerializerFeature.DisableCircularReferenceDetect);
-        //响应message到前端
-        response.getWriter().println(departments_json);
-    }
-    //响应school_id的所有部门对象
-    private void responseDepSch(int staff_id,HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-        //获得所有部门
-        Collection<Department> departments = DepartmentService.getInstance().findAllByStaff(staff_id);
         String departments_json = JSON.toJSONString(departments, SerializerFeature.DisableCircularReferenceDetect);
         //响应message到前端
         response.getWriter().println(departments_json);
