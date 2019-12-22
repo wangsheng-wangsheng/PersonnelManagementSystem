@@ -33,7 +33,14 @@ public class Department
 	 * @generated
 	 * @ordered
 	 */
-	
+	private String address;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
 	private String remarks;
 
 	/**
@@ -45,17 +52,19 @@ public class Department
 	
 	public Leader leader;
 
+	public Department(int id, String name, String address, String remarks, Leader leader) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.remarks = remarks;
+		this.leader = leader;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public Department(int id, String name, String remarks, Leader leader) {
-		this.id = id;
-		this.name = name;
-		this.remarks = remarks;
-		this.leader = leader;
-	}
 
 	public int getId() {
 		return id;
@@ -81,12 +90,20 @@ public class Department
 		this.name = name;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
 
 	public void setLeader(Leader leader) {
 		this.leader = leader;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
 
