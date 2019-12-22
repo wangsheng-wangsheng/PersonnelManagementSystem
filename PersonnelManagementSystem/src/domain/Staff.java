@@ -1,8 +1,4 @@
 package domain;
-import java.util.HashSet;
-import java.util.Set;
-
-
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -99,7 +95,7 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
-	public Position position;
+	public Job job;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,12 +106,7 @@ public class Staff extends Actor
 	
 	public Education education;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Staff(int id, String name, User user, int id1, int staffId, String name1, String sex, String idCard, String nativePlace, String phoneNumber, String mail, Contract contranct, Position position, Education education) {
+	public Staff(int id, String name, User user, int id1, int staffId, String name1, String sex, String idCard, String nativePlace, String phoneNumber, String mail, Contract contract, Job job, Education education) {
 		super(id, name, user);
 		this.id = id1;
 		this.staffId = staffId;
@@ -126,9 +117,16 @@ public class Staff extends Actor
 		this.phoneNumber = phoneNumber;
 		this.mail = mail;
 		this.contract = contract;
-		this.position = position;
+		this.job= job;
 		this.education = education;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 */
+
 
 	@Override
 	public void setId(int id) {
@@ -168,8 +166,8 @@ public class Staff extends Actor
 		this.contract = contract;
 	}
 
-	public void setPosition(Position position) {
-		this.position = position;
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public void setEducation(Education education) {
@@ -214,8 +212,8 @@ public class Staff extends Actor
 		return contract;
 	}
 
-	public Position getPosition() {
-		return position;
+	public Job getJob() {
+		return job;
 	}
 
 	public Education getEducation() {

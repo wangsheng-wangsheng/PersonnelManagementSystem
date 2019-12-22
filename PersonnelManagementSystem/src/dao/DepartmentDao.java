@@ -1,5 +1,6 @@
 package dao;
 import domain.Department;
+import service.LeaderService;
 import util.JdbcHelper;
 import java.sql.*;
 import java.util.Collection;
@@ -30,9 +31,9 @@ public final class DepartmentDao {
             departments.add(new Department(
                     resultSet.getInt("id"),
                     resultSet.getString("name"),
-                    resultSet.getString("leader"),
                     resultSet.getString("address"),
-                    resultSet.getString("remarks")
+                    resultSet.getString("remarks"),
+                    LeaderService.getInstance().find(resultSet.getInt("leader_id"))
             ));
         }
         //使用JdbcHelper关闭Connection对象
@@ -59,9 +60,9 @@ public final class DepartmentDao {
             department = new Department(
                     resultSet.getInt("id"),
                     resultSet.getString("name"),
-                    resultSet.getString("leader"),
                     resultSet.getString("address"),
-                    resultSet.getString("remarks")
+                    resultSet.getString("remarks"),
+                    LeaderService.getInstance().find(resultSet.getInt("leader_id"))
             );
         }
         //关闭资源
@@ -72,14 +73,14 @@ public final class DepartmentDao {
         //获取数据库连接对象
         Connection connection = JdbcHelper.getConn();
         //创建sql语句
-        String updateDepartment_sql = "UPDATE department SET name=?,leader=?,address=?,remarks=? WHERE id=?";
+        String updateDepartment_sql = "UPDATE department SET name=?,address=?,remarks=?,leader_id=? WHERE id=?";
         //在该连接上创建预编译语句对象
         PreparedStatement preparedStatement = connection.prepareStatement(updateDepartment_sql);
         //为预编译参数赋值
         preparedStatement.setString(1,department.getName());
-        preparedStatement.setString(2,department.getLeader());
-        preparedStatement.setString(3,department.getAddress());
-        preparedStatement.setString(4,department.getRemarks());
+        preparedStatement.setString(2,department.getAddress());
+        preparedStatement.setString(3,department.getRemarks());
+        preparedStatement.setInt(4,department.getLeader().getId());
         preparedStatement.setInt(5,department.getId());
         //执行预编译语句
         int affectedRows = preparedStatement.executeUpdate();
@@ -95,13 +96,13 @@ public final class DepartmentDao {
         //SQL语句为多行时，注意语句不同部分之间有空格
         PreparedStatement pstmt =
                 connection.prepareStatement("INSERT INTO department" +
-                        "(name,leader,address,remarks)"
+                        "(name,address,remarks,leader_id)"
                         + " VALUES (?,?,?,?)");
         //为预编译参数赋值
         pstmt.setString(1,department.getName());
-        pstmt.setString(2,department.getLeader());
-        pstmt.setString(3,department.getAddress());
-        pstmt.setString(4,department.getRemarks());
+        pstmt.setString(2,department.getAddress());
+        pstmt.setString(3,department.getRemarks());
+        pstmt.setInt(4,department.getLeader().getId());
         //执行预编译对象的executeUpdate方法，获取添加的记录行数
         //执行预编译语句，用其返回值、影响的行数为赋值affectedRowNum
         int affectedRowNum = pstmt.executeUpdate();

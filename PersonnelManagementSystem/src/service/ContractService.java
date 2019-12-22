@@ -1,6 +1,7 @@
 package service;
 
 import dao.ContractDao;
+import domain.Contract;
 
 import java.sql.SQLException;
 import java.util.Collection;
