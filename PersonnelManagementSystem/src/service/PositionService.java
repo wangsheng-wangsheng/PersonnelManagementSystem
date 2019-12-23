@@ -2,6 +2,7 @@ package service;
 import dao.PositionDao;
 import domain.Position;
 
+import javax.swing.text.Position;
 import java.sql.SQLException;
 import java.util.Collection;
 public final class PositionService {

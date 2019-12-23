@@ -1,5 +1,6 @@
 package service;
 import dao.JobDao;
+import domain.Job;
 
 import java.sql.SQLException;
 import java.util.Collection;

@@ -1,5 +1,6 @@
 package service;
 import dao.AttendanceDao;
+import domain.Attendance;
 
 import java.sql.SQLException;
 import java.util.Collection;

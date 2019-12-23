@@ -1,3 +1,7 @@
+package service;
+import dao.SalaryDao;
+import domain.Salary;
+
 import java.sql.SQLException;
 
 public class SalaryService {

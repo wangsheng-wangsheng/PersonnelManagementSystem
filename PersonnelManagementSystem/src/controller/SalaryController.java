@@ -3,6 +3,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import domain.Salary;
+import service.SalaryService;
 import util.JSONUtil;
 
 import javax.servlet.ServletException;

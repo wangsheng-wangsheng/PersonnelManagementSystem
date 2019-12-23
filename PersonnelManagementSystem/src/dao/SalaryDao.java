@@ -1,3 +1,4 @@
+package dao;
 import domain.Salary;
 import service.StaffService;
 import util.JdbcHelper;

@@ -1,6 +1,7 @@
 package service;
 
 import dao.EducationDao;
+import domain.Education;
 
 import java.sql.SQLException;
 import java.util.Collection;

@@ -1,4 +1,5 @@
 package dao;
+import domain.Job;
 import service.DepartmentService;
 import util.JdbcHelper;
 import java.sql.*;

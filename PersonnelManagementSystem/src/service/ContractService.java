@@ -1,5 +1,5 @@
 package service;
-
+import domain.Contract;
 import dao.ContractDao;
 
 import java.sql.SQLException;
