@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PersonnelManagementSystem/PersonnelManagementSystem.iml" filepath="$PROJECT_DIR$/PersonnelManagementSystem/PersonnelManagementSystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ccsj.iml" filepath="$PROJECT_DIR$/ccsj.iml" />
     </modules>
   </component>
 </project>

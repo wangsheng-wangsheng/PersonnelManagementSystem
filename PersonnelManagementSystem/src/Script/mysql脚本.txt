@@ -121,7 +121,7 @@ carAllowance  bigint not null,
 houseAllowance bigint not null,
 pension bigint not null,
 medicalInsurance bigint not null,
-time date not null,
+time varchar(255),
 staff_id int not null,
 primary key (id,staff_id),
 foreign key(staff_id) references staff(id)
