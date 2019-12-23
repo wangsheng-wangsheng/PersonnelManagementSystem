@@ -1,6 +1,8 @@
 package domain;
 
 
+import java.sql.Date;
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -9,7 +11,7 @@ package domain;
 
 public class Evaluate
 {
-	public Evaluate(int id, String assessmentStartDate, String assessmentEndDate, String professionalSkill, String workAttitude, String workPerformance, Staff staff) {
+	public Evaluate(int id, String assessmentStartDate, String assessmentEndDate, String professionalSkill, String workAttitude, String workPerformance, Staff staff,String comment) {
 		this.id = id;
 		this.assessmentStartDate = assessmentStartDate;
 		this.assessmentEndDate = assessmentEndDate;
@@ -17,9 +19,10 @@ public class Evaluate
 		this.workAttitude = workAttitude;
 		this.workPerformance = workPerformance;
 		this.staff = staff;
+		this.comment=comment;
 	}
 
-	public int getId() {
+    public int getId() {
 		return id;
 	}
 
@@ -41,6 +44,9 @@ public class Evaluate
 
 	public String getWorkPerformance() {
 		return workPerformance;
+	}
+	public String getComment() {
+		return comment;
 	}
 
 	public Staff getStaff() {
@@ -137,15 +143,24 @@ public class Evaluate
 	 */
 	
 	public Staff staff;
+	private String comment;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
+	 * @param id
+	 * @param assessmentStartDate
+	 * @param assessmentEndDate
+	 * @param professionalSkill
+	 * @param workAttitude
+	 * @param wordPerformance
+	 * @param staff_id
+	 * @param comment
 	 */
-	public Evaluate(){
-		super();
-	}
+//	public Evaluate(int id, String assessmentStartDate, String assessmentEndDate, String professionalSkill, String workAttitude, String wordPerformance, Staff staff_id, String comment){
+//		super();
+//	}
 
 }
 

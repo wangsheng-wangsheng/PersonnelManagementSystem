@@ -31,8 +31,8 @@ public class EvaluateDao {
         while (resultSet.next()){
             evaluates.add(new Evaluate(
                     resultSet.getInt("id"),
-                    resultSet.getDate("assessmentStartDate"),
-                    resultSet.getDate("assessmentEndDate"),
+                    resultSet.getString("assessmentStartDate"),
+                    resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
                     resultSet.getString("wordPerformance"),
@@ -60,8 +60,8 @@ public class EvaluateDao {
         if (resultSet.next()){
             evaluate = new Evaluate(
                     resultSet.getInt("id"),
-                    resultSet.getDate("assessmentStartDate"),
-                    resultSet.getDate("assessmentEndDate"),
+                    resultSet.getString("assessmentStartDate"),
+                    resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
                     resultSet.getString("wordPerformance"),
@@ -77,8 +77,8 @@ public class EvaluateDao {
         Connection connection = JdbcHelper.getConn();
         String updateEvaluate_sql = "UPDATE evaluate SET assessmentStartDate=?, assessmentEndDate=?, professionalSkill=?, workAttitude=?, workPerformance=?, staff_id=?, comment=? WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(updateEvaluate_sql);
-        preparedStatement.setDate(1, (Date) evaluate.getAssessmentStartDate());
-        preparedStatement.setDate(2, (Date) evaluate.getAssessmentEndDate());
+        preparedStatement.setString(1, evaluate.getAssessmentStartDate());
+        preparedStatement.setString(2, evaluate.getAssessmentEndDate());
         preparedStatement.setString(3,evaluate.getProfessionalSkill());
         preparedStatement.setString(4,evaluate.getWorkAttitude());
         preparedStatement.setString(5,evaluate.getWorkPerformance());
@@ -101,8 +101,8 @@ public class EvaluateDao {
                         "(assessmentStartDate,assessmentEndDate,professionalSkill,workAttitude,workPerformance,staff_id,comment)"
                         + " VALUES (?,?,?,?,?,?,?)");
         //为预编译参数赋值
-        pstmt.setDate(1, (Date) evaluate.getAssessmentStartDate());
-        pstmt.setDate(2, (Date) evaluate.getAssessmentEndDate());
+        pstmt.setString(1,evaluate.getAssessmentStartDate());
+        pstmt.setString(2,evaluate.getAssessmentEndDate());
         pstmt.setString(3,evaluate.getProfessionalSkill());
         pstmt.setString(4,evaluate.getWorkAttitude());
         pstmt.setString(5,evaluate.getWorkPerformance());
@@ -148,8 +148,8 @@ public class EvaluateDao {
         while (resultSet.next()){
             evaluates.add(new Evaluate(
                     resultSet.getInt("id"),
-                    resultSet.getDate("assessmentStartDate"),
-                    resultSet.getDate("assessmentEndDate"),
+                    resultSet.getString("assessmentStartDate"),
+                    resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
                     resultSet.getString("wordPerformance"),
