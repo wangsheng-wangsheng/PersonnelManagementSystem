@@ -9,6 +9,7 @@ package domain;
 
 public class Job
 {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

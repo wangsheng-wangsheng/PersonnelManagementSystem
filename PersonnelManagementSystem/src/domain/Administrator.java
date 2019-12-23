@@ -9,6 +9,7 @@ package domain;
 
 public class Administrator extends Actor
 {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

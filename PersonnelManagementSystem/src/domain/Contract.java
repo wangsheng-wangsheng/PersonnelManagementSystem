@@ -9,6 +9,7 @@ package domain;
 
 public class Contract
 {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

@@ -9,6 +9,36 @@ package domain;
 
 public class Actor
 {
+	public Actor(int id, String name, User user) {
+		this.id = id;
+		this.name = name;
+		this.user = user;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -35,6 +65,7 @@ public class Actor
 	 */
 	
 	public User user;
+
 
 	/**
 	 * <!-- begin-user-doc -->
