@@ -13,13 +13,13 @@ public class Evaluate
 {
 	public Evaluate(int id, String assessmentStartDate, String assessmentEndDate, String professionalSkill, String workAttitude, String workPerformance, Staff staff,String comment) {
 		this.id = id;
-		this.assessmentStartDate = assessmentStartDate;
-		this.assessmentEndDate = assessmentEndDate;
-		this.professionalSkill = professionalSkill;
-		this.workAttitude = workAttitude;
-		this.workPerformance = workPerformance;
-		this.staff = staff;
-		this.comment=comment;
+		this.assessmentStartDate = assessmentStartDate;//考核开始时间
+		this.assessmentEndDate = assessmentEndDate;//考核结束时间
+		this.professionalSkill = professionalSkill;//业务水平
+		this.workAttitude = workAttitude;//工作态度
+		this.workPerformance = workPerformance;//工作业绩
+		this.staff = staff;//员工姓名 id
+		this.comment=comment;//备注
 	}
 
     public int getId() {
@@ -158,9 +158,6 @@ public class Evaluate
 	 * @param staff_id
 	 * @param comment
 	 */
-//	public Evaluate(int id, String assessmentStartDate, String assessmentEndDate, String professionalSkill, String workAttitude, String wordPerformance, Staff staff_id, String comment){
-//		super();
-//	}
 
 }
 

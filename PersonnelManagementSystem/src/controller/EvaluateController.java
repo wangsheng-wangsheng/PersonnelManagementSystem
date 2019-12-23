@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 
-@WebServlet("/evaluate")
+@WebServlet("/evaluate.ctl")
 public class EvaluateController extends HttpServlet {
     //    GET, http://localhost:8080/evaluate.ctl?id=1, 查询id=1的考核
     //    GET, http://localhost:8080/evaluate.ctl, 查询所有的考核
