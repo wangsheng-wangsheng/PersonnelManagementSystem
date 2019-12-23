@@ -19,7 +19,7 @@ public class ContractDao {
             //获得连接对象
             Connection connection = JdbcHelper.getConn();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from contranct");
+            ResultSet resultSet = statement.executeQuery("select * from contract");
             //若结果集仍然有下一条记录，则执行循环体
             while (resultSet.next()){
                 //以当前记录中的id,description,no,remarks值为参数，创建Degree对象
@@ -37,7 +37,7 @@ public class ContractDao {
         public Contract find(Integer id) throws SQLException{
             Contract contract = null;
             Connection connection = JdbcHelper.getConn();
-            String findContract_sql = "SELECT * FROM contranct WHERE id=?";
+            String findContract_sql = "SELECT * FROM contract WHERE id=?";
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement(findContract_sql);
             //为预编译参数赋值
@@ -58,7 +58,7 @@ public class ContractDao {
 
         public boolean add(Contract contract) throws SQLException{
             Connection connection = JdbcHelper.getConn();
-            String addContract_sql = "INSERT INTO contranct (startTime,endTime,signTimes," +
+            String addContract_sql = "INSERT INTO contract (startTime,endTime,signTimes," +
                     "signStatus,ifWork) VALUES (?,?,?,?,?)";
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement(addContract_sql);
@@ -80,7 +80,7 @@ public class ContractDao {
         public boolean delete(int id) throws SQLException{
             Connection connection = JdbcHelper.getConn();
             //写sql语句
-            String deleteContract_sql = "DELETE FROM contranct WHERE id=?";
+            String deleteContract_sql = "DELETE FROM contract WHERE id=?";
             //在该连接上创建预编译语句对象
             PreparedStatement preparedStatement = connection.prepareStatement(deleteContract_sql);
             //为预编译参数赋值

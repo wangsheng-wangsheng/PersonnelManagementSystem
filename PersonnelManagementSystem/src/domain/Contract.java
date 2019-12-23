@@ -68,8 +68,20 @@ public class Contract
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
+	public Contract(){
+		super();
+	}
+
 	public Contract(int id, String startTime, String endTime, int signTimes, String signStatus, String ifWork) {
 		this.id = id;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.signTimes = signTimes;
+		this.signStatus = signStatus;
+		this.ifWork = ifWork;
+	}
+
+	public Contract(String startTime, String endTime, int signTimes, String signStatus, String ifWork) {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.signTimes = signTimes;
@@ -99,30 +111,6 @@ public class Contract
 
 	public String getIfWork() {
 		return ifWork;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
-	public void setSignTimes(int signTimes) {
-		this.signTimes = signTimes;
-	}
-
-	public void setSignStatus(String signStatus) {
-		this.signStatus = signStatus;
-	}
-
-	public void setIfWork(String ifWork) {
-		this.ifWork = ifWork;
 	}
 }
 

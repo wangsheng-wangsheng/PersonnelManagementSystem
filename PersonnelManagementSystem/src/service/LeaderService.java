@@ -1,6 +1,5 @@
 package service;
 import dao.LeaderDao;
-import domain.Leader;
 
 import java.sql.SQLException;
 import java.util.Collection;

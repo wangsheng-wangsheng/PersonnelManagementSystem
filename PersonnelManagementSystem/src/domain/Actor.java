@@ -41,35 +41,9 @@ public class Actor
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-
-	public Actor(int id, String name, User user) {
-		this.id = id;
-		this.name = name;
-		this.user = user;
+	public Actor(){
+		super();
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public User getUser() {
-		return user;
-	}
 }
 

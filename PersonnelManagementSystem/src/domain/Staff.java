@@ -1,4 +1,6 @@
 package domain;
+import domain.Education;
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -95,7 +97,7 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
-	public Job job;
+	public Job position;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,79 +108,31 @@ public class Staff extends Actor
 	
 	public Education education;
 
-	public Staff(int id, String name, User user, int id1,
-				 int staffId, String name1, String sex,
-				 String idCard, String nativePlace,
-				 String phoneNumber, String mail, Contract contract,
-				 Job job, Education education) {
-		super(id, name, user);
-		this.id = id1;
-		this.staffId = staffId;
-		this.name = name1;
-		this.sex = sex;
-		this.idCard = idCard;
-		this.nativePlace = nativePlace;
-		this.phoneNumber = phoneNumber;
-		this.mail = mail;
-		this.contract = contract;
-		this.job= job;
-		this.education = education;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
+	public Staff(){
+		super();
+	}
 
-
-	@Override
-	public void setId(int id) {
+	public Staff(int id, int staffId, String name, String sex,
+				 String idCard, String nativePlace, String phoneNumber, String mail,
+				 Contract contract, Job position, Education education) {
 		this.id = id;
-	}
-
-	public void setStaffId(int staffId) {
 		this.staffId = staffId;
-	}
-
-	@Override
-	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setSex(String sex) {
 		this.sex = sex;
-	}
-
-	public void setIdCard(String idCard) {
 		this.idCard = idCard;
-	}
-
-	public void setNativePlace(String nativePlace) {
 		this.nativePlace = nativePlace;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-	public void setContract(Contract contract) {
 		this.contract = contract;
-	}
-
-	public void setJob(Job job) {
-		this.job = job;
-	}
-
-	public void setEducation(Education education) {
+		this.position = position;
 		this.education = education;
 	}
 
-	@Override
 	public int getId() {
 		return id;
 	}
@@ -187,7 +141,6 @@ public class Staff extends Actor
 		return staffId;
 	}
 
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -216,8 +169,8 @@ public class Staff extends Actor
 		return contract;
 	}
 
-	public Job getJob() {
-		return job;
+	public Job getPosition() {
+		return position;
 	}
 
 	public Education getEducation() {

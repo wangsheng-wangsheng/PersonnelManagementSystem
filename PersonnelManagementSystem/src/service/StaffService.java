@@ -21,6 +21,10 @@ public class StaffService {
         return staffDao.find(id);
     }
 
+    public Staff findByStaffId(Integer staffId) throws SQLException {
+        return staffDao.findByStaffId(staffId);
+    }
+
     public boolean update(Staff staff) throws SQLException {
         return staffDao.update(staff);
     }

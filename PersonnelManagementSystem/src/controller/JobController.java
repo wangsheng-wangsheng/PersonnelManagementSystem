@@ -1,5 +1,4 @@
 package controller;
-import domain.Job;
 import service.JobService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
