@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a8950b-5705-4966-916f-5d6a998baa8c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PersonnelManagementSystem_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/Script/mysql脚本.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/Script/mysql脚本.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/AttendanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/AttendanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/EvaluateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/EvaluateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/LeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/LeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/SalaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/controller/SalaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/SalaryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersonnelManagementSystem/src/dao/SalaryDao.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +19,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="ProjectId" id="1VNL2kbPwJ4IEPXWikaRgu0Idx7" />
   <component name="PropertiesComponent">
@@ -60,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577088402917</updated>
-      <workItem from="1577088415184" duration="5944000" />
+      <workItem from="1577088415184" duration="7457000" />
     </task>
     <task id="LOCAL-00001" summary="总">
       <created>1577094195220</created>
@@ -69,7 +73,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577094195220</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改脚本">
+      <created>1577094642654</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577094642654</updated>
+    </task>
+    <task id="LOCAL-00003" summary="增加构造器">
+      <created>1577095291187</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577095291187</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +106,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="总" />
-    <option name="LAST_COMMIT_MESSAGE" value="总" />
+    <MESSAGE value="修改脚本" />
+    <MESSAGE value="增加构造器" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加构造器" />
   </component>
 </project>

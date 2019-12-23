@@ -1,7 +1,9 @@
+package controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import SalaryService;
-import JSONUtil;
+
+import domain.Salary;
+import util.JSONUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

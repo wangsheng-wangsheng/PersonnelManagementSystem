@@ -1,4 +1,5 @@
 package controller;
+import domain.Attendance;
 import service.AttendanceService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
