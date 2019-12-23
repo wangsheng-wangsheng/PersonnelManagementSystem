@@ -89,5 +89,22 @@ public class Job
 		this.name = name;
 		this.remarks = remarks;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 }
 

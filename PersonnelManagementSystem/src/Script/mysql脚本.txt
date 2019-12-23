@@ -95,8 +95,8 @@ foreign key(job_id) references job(id)
 );
 create table evaluate (
 id int auto_increment,
-assessmentStartDate date not null,
-assessmentEndDate date not null,
+assessmentStartDate varchar(255) not null,
+assessmentEndDate varchar(255) not null,
 professionalSkill varchar(255) not null,
 workAttitude varchar(255) not null,
 workPerformance varchar(255) not null,
