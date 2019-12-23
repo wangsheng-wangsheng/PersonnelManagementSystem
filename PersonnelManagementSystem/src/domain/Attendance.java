@@ -9,9 +9,9 @@ package domain;
 
 public class Attendance
 {
-	public Attendance(int id, String attendenceTime, String remarks, Staff staff) {
+	public Attendance(int id, String attendanceTime, String remarks, Staff staff) {
 		this.id = id;
-		this.attendenceTime = attendenceTime;
+		this.attendanceTime = attendanceTime;
 		this.remarks = remarks;
 		this.staff = staff;
 	}
@@ -20,8 +20,8 @@ public class Attendance
 		return id;
 	}
 
-	public String getAttendenceTime() {
-		return attendenceTime;
+	public String getAttendanceTime() {
+		return attendanceTime;
 	}
 
 	public String getRemarks() {
@@ -36,8 +36,8 @@ public class Attendance
 		this.id = id;
 	}
 
-	public void setAttendenceTime(String attendenceTime) {
-		this.attendenceTime = attendenceTime;
+	public void setAttendanceTime(String attendanceTime) {
+		this.attendanceTime = attendanceTime;
 	}
 
 	public void setRemarks(String remarks) {
@@ -64,7 +64,7 @@ public class Attendance
 	 * @ordered
 	 */
 	
-	private String attendenceTime;
+	private String attendanceTime;
 
 	/**
 	 * <!-- begin-user-doc -->
