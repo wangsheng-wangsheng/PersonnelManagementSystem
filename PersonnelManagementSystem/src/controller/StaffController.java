@@ -64,6 +64,7 @@ public class StaffController extends HttpServlet {
             e.printStackTrace();
         }catch(Exception e){
             message.put("message", "网络异常");
+            e.printStackTrace();
         }
         //响应message到前端
         response.getWriter().println(message);
@@ -98,6 +99,7 @@ public class StaffController extends HttpServlet {
             e.printStackTrace();
         }catch(Exception e){
             message.put("message", "网络异常");
+            e.printStackTrace();
         }
         //响应message到前端
         response.getWriter().println(message);
@@ -132,6 +134,7 @@ public class StaffController extends HttpServlet {
             e.printStackTrace();
         }catch(Exception e){
             message.put("message", "网络异常");
+            e.printStackTrace();
         }
         //响应message到前端
         response.getWriter().println(message);
@@ -151,19 +154,22 @@ public class StaffController extends HttpServlet {
         //读取参数id
         String id_str = request.getParameter("id");
         String staff_str = request.getParameter("staffId");
+        String no_str = request.getParameter("no");
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
         try {
             //如果id = null, 表示响应所有部门对象，否则响应id指定的部门对象
-            if (id_str == null && staff_str==null) {
+            if (id_str == null && staff_str==null && no_str==null) {
                 responseStaffs(response);
             }else {
-                if (staff_str == null) {
+                if (staff_str == null && no_str==null) {
                     int id = Integer.parseInt(id_str);
                     responseStaff(id, response);
-                }else {
+                }else if(id_str == null && no_str==null){
                     int staffId = Integer.parseInt(staff_str);
                     responseByStaffId(staffId,response);
+                }else {
+                    responseByStaffNo(no_str,response);
                 }
             }
         }catch (SQLException e){
@@ -172,7 +178,9 @@ public class StaffController extends HttpServlet {
             //响应message到前端
             response.getWriter().println(message);
         }catch(Exception e){
+            e.printStackTrace();
             message.put("message", "网络异常");
+            e.printStackTrace();
             //响应message到前端
             response.getWriter().println(message);
         }
@@ -201,6 +209,14 @@ public class StaffController extends HttpServlet {
         //获得所有员工
         Collection<Staff> staff = StaffService.getInstance().findAll();
         String staff_json = JSON.toJSONString(staff, SerializerFeature.DisableCircularReferenceDetect);
+        //响应message到前端
+        response.getWriter().println(staff_json);
+    }
+    private void responseByStaffNo(String no, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+        //根据id查找员工
+        Staff staff = StaffService.getInstance().findByStaffNo(no);
+        String staff_json = JSON.toJSONString(staff);
         //响应message到前端
         response.getWriter().println(staff_json);
     }

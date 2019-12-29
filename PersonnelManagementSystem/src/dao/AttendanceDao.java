@@ -29,7 +29,9 @@ public final class AttendanceDao {
         while (resultSet.next()){
             attendances.add(new Attendance(
                     resultSet.getInt("id"),
-                    resultSet.getString("attendanceTime"),
+                    resultSet.getString("startTime"),
+                    resultSet.getString("overTime"),
+                    resultSet.getString("type"),
                     resultSet.getString("remarks"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id"))
             ));
@@ -54,7 +56,9 @@ public final class AttendanceDao {
         if (resultSet.next()){
             attendance = new Attendance(
                     resultSet.getInt("id"),
-                    resultSet.getString("attendanceTime"),
+                    resultSet.getString("startTime"),
+                    resultSet.getString("overTime"),
+                    resultSet.getString("type"),
                     resultSet.getString("remarks"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id"))
             );
@@ -65,12 +69,14 @@ public final class AttendanceDao {
     }
     public boolean update(Attendance attendance)throws SQLException{
         Connection connection = JdbcHelper.getConn();
-        String updateAttendance_sql = "UPDATE attendance SET attendanceTime=?, remarks=?, staff_id=? WHERE id=?";
+        String updateAttendance_sql = "UPDATE attendance SET startTime=?, overTime=?, type=?,remarks=?,staff_id=? WHERE id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(updateAttendance_sql);
-        preparedStatement.setString(1,attendance.getAttendanceTime());
-        preparedStatement.setString(2,attendance.getRemarks());
-        preparedStatement.setInt(3,attendance.getStaff().getId());
-        preparedStatement.setInt(4,attendance.getId());
+        preparedStatement.setString(1,attendance.getStartTime());
+        preparedStatement.setString(2,attendance.getOverTime());
+        preparedStatement.setString(3,attendance.getType());
+        preparedStatement.setString(4,attendance.getRemarks());
+        preparedStatement.setInt(5,attendance.getStaff().getId());
+        preparedStatement.setInt(6,attendance.getId());
         int affectedRows = preparedStatement.executeUpdate();
         System.out.println("更新"+affectedRows+"条记录");
         preparedStatement.close();
@@ -84,12 +90,14 @@ public final class AttendanceDao {
         //SQL语句为多行时，注意语句不同部分之间有空格
         PreparedStatement pstmt =
                 connection.prepareStatement("INSERT INTO attendance" +
-                        "(attendanceTime,remarks,staff_id)"
-                        + " VALUES (?,?,?)");
+                        "(startTime, overTime, type,remarks,staff_id)"
+                        + " VALUES (?,?,?,?,?)");
         //为预编译参数赋值
-        pstmt.setString(1, attendance.getAttendanceTime());
-        pstmt.setString(2, attendance.getRemarks());
-        pstmt.setInt(3, attendance.getStaff().getId());
+        pstmt.setString(1, attendance.getStartTime());
+        pstmt.setString(2, attendance.getOverTime());
+        pstmt.setString(3, attendance.getType());
+        pstmt.setString(4, attendance.getRemarks());
+        pstmt.setInt(5, attendance.getStaff().getId());
         //执行预编译对象的executeUpdate方法，获取添加的记录行数
         //执行预编译语句，用其返回值、影响的行数为赋值affectedRowNum
         int affectedRowNum = pstmt.executeUpdate();
@@ -130,7 +138,34 @@ public final class AttendanceDao {
         while (resultSet.next()){
             attendances.add(new Attendance(
                     resultSet.getInt("id"),
-                    resultSet.getString("attendanceTime"),
+                    resultSet.getString("startTime"),
+                    resultSet.getString("overTime"),
+                    resultSet.getString("type"),
+                    resultSet.getString("remarks"),
+                    StaffService.getInstance().find(resultSet.getInt("staff_id"))
+            ));
+        }
+        //使用JdbcHelper关闭Connection对象
+        JdbcHelper.close(resultSet,preparedStatement,connection);
+        //返回degrees
+        return attendances;
+    }
+    public Collection<Attendance> findByStaffNo(String no) throws SQLException {
+        attendances = new HashSet<Attendance>();
+        //获取数据库连接对象
+        Connection connection = JdbcHelper.getConn();
+        String findAttendances ="SELECT * FROM attendance,staff WHERE staff.id=attendance.staff_id and no=?";
+        //在该连接上创建预编译语句对象
+        PreparedStatement preparedStatement = connection.prepareStatement(findAttendances);
+        preparedStatement.setString(1,no);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        //若结果集仍然有下一条记录，则执行循环体
+        while (resultSet.next()){
+            attendances.add(new Attendance(
+                    resultSet.getInt("id"),
+                    resultSet.getString("startTime"),
+                    resultSet.getString("overTime"),
+                    resultSet.getString("type"),
                     resultSet.getString("remarks"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id"))
             ));

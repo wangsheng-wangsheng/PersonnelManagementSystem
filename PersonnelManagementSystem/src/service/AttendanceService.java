@@ -35,5 +35,8 @@ public final class AttendanceService {
     public Collection<Attendance> findAllByStaff(Integer staff_id) throws SQLException {
         return attendanceDao.findAllByStaff(staff_id);
     }
+    public Collection<Attendance> findByStaffNo(String no) throws SQLException {
+        return attendanceDao.findByStaffNo(no);
+    }
 }
 

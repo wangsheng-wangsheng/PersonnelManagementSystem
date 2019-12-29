@@ -35,7 +35,7 @@ public class EvaluateDao {
                     resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
-                    resultSet.getString("wordPerformance"),
+                    resultSet.getString("workPerformance"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id")),
                     resultSet.getString("comment")
             ));
@@ -64,7 +64,7 @@ public class EvaluateDao {
                     resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
-                    resultSet.getString("wordPerformance"),
+                    resultSet.getString("workPerformance"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id")),
                     resultSet.getString("comment")
             );
@@ -152,9 +152,36 @@ public class EvaluateDao {
                     resultSet.getString("assessmentEndDate"),
                     resultSet.getString("professionalSkill"),
                     resultSet.getString("workAttitude"),
-                    resultSet.getString("wordPerformance"),
+                    resultSet.getString("workPerformance"),
                     StaffService.getInstance().find(resultSet.getInt("staff_id")),
                             resultSet.getString("comment")
+            ));
+        }
+        //使用JdbcHelper关闭Connection对象
+        JdbcHelper.close(resultSet,preparedStatement,connection);
+        //返回degrees
+        return evaluates;
+    }
+    public Collection<Evaluate> findByStaffNo(String no) throws SQLException {
+        evaluates = new HashSet<Evaluate>();
+        //获取数据库连接对象
+        Connection connection = JdbcHelper.getConn();
+        String findEvaluates ="SELECT * FROM evaluate,staff WHERE staff.id = evaluate.staff_id and no=?";
+        //在该连接上创建预编译语句对象
+        PreparedStatement preparedStatement = connection.prepareStatement(findEvaluates);
+        preparedStatement.setString(1,no);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        //若结果集仍然有下一条记录，则执行循环体
+        while (resultSet.next()){
+            evaluates.add(new Evaluate(
+                    resultSet.getInt("id"),
+                    resultSet.getString("assessmentStartDate"),
+                    resultSet.getString("assessmentEndDate"),
+                    resultSet.getString("professionalSkill"),
+                    resultSet.getString("workAttitude"),
+                    resultSet.getString("workPerformance"),
+                    StaffService.getInstance().find(resultSet.getInt("staff_id")),
+                    resultSet.getString("comment")
             ));
         }
         //使用JdbcHelper关闭Connection对象

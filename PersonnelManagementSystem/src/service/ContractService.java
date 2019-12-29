@@ -1,5 +1,4 @@
 package service;
-import domain.Contract;
 import dao.ContractDao;
 import domain.Contract;
 

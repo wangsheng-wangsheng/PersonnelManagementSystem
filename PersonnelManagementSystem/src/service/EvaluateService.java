@@ -56,5 +56,8 @@ public class EvaluateService {
     public Collection<Evaluate> findAllByStaff(Integer staff_id) throws SQLException {
         return evaluateDao.findAllByStaff(staff_id);
     }
+    public Collection<Evaluate> findByStaffNo(String no) throws SQLException {
+        return evaluateDao.findByStaffNo(no);
+    }
 }
 

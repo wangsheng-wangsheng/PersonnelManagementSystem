@@ -35,9 +35,11 @@ public class AttendanceController extends HttpServlet {
 
     //请使用以下JSON测试修改功能
     //{"id":1,"name":"人事部","remarks":"","staff_id":"1"}
+
     /**
      * POST,http://localhost:8080/attendance.ctl
      * 增加一个考勤对象：将来自前端请求的JSON对象，增加到数据库表中
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -51,7 +53,7 @@ public class AttendanceController extends HttpServlet {
         //将JSON字串解析为Attendance对象
         Attendance attendanceToAdd = JSON.parseObject(attendance_json, Attendance.class);
         //前台没有为id赋值，此处模拟自动生成id。Dao能实现数据库操作时，应删除此语句。
-        attendanceToAdd.setId(4 + (int)(Math.random()*100));
+        attendanceToAdd.setId(4 + (int) (Math.random() * 100));
         //响应
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
@@ -63,7 +65,7 @@ public class AttendanceController extends HttpServlet {
         } catch (SQLException e) {
             message.put("message", "数据库操作异常");
             e.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             message.put("message", "网络异常");
         }
         //响应message到前端
@@ -73,6 +75,7 @@ public class AttendanceController extends HttpServlet {
     /**
      * DELETE, http://localhost:8080/attendance.ctl?id=1
      * 删除一个考勤对象：根据来自前端请求的id，删除数据库表中id的对应记录
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -93,7 +96,7 @@ public class AttendanceController extends HttpServlet {
         } catch (SQLException e) {
             message.put("message", "数据库操作异常");
             e.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             message.put("message", "网络异常");
         }
         //响应message到前端
@@ -104,6 +107,7 @@ public class AttendanceController extends HttpServlet {
     /**
      * PUT, http://localhost:8080/attendance.ctl
      * 修改一个考勤对象：将来自前端请求的JSON对象，更新数据库表中相同id的记录
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -125,16 +129,18 @@ public class AttendanceController extends HttpServlet {
         } catch (SQLException e) {
             message.put("message", "数据库操作异常");
             e.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             message.put("message", "网络异常");
         }
         //响应message到前端
         response.getWriter().println(message);
     }
+
     /**
      * GET, http://localhost:8080/attendance.ctl?id=1, 查询id=1的考勤
      * GET, http://localhost:8080/attendance.ctl, 查询所有的考勤
      * 响应一个或所有考勤对象
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -145,41 +151,31 @@ public class AttendanceController extends HttpServlet {
             throws ServletException, IOException {
         //读取参数id
         String id_str = request.getParameter("id");
-        String staff_str = request.getParameter("staffId");
+        String no_str = request.getParameter("no");
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
         try {
-            //如果id = null, 表示响应所有考勤对象，否则响应id指定的考勤对象
-            if (id_str == null&&staff_str==null) {
+            if (id_str == null && no_str == null) {
                 responseAttendances(response);
-            }else {
+            } else if (id_str != null && no_str == null) {
                 int id = Integer.parseInt(id_str);
-                if(staff_str==null) {
-                    responseAttendance(id, response);
-                }else if(staff_str.equals("staffId")){
-                    responseDepSch(id, response);
-                }
+                responseAttendance(id, response);
+            } else {
+                responseAttendanceNo(no_str, response);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             message.put("message", "数据库操作异常");
             e.printStackTrace();
             //响应message到前端
             response.getWriter().println(message);
-        }catch(Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             message.put("message", "网络异常");
             //响应message到前端
             response.getWriter().println(message);
         }
     }
-    //响应一个考勤对象
-    private void responseAttendance(int id, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-        //根据id查找考勤
-        Attendance attendance = AttendanceService.getInstance().find(id);
-        String attendance_json = JSON.toJSONString(attendance);
-        //响应message到前端
-        response.getWriter().println(attendance_json);
-    }
+
     //响应所有考勤对象
     private void responseAttendances(HttpServletResponse response)
             throws ServletException, IOException, SQLException {
@@ -189,13 +185,24 @@ public class AttendanceController extends HttpServlet {
         //响应message到前端
         response.getWriter().println(attendances_json);
     }
+
     //响应school_id的所有考勤对象
-    private void responseDepSch(int staff_id,HttpServletResponse response)
+    private void responseAttendance(int id, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         //获得所有考勤
-        Collection<Attendance> attendances = AttendanceService.getInstance().findAllByStaff(staff_id);
+        Attendance attendances = AttendanceService.getInstance().find(id);
         String attendances_json = JSON.toJSONString(attendances, SerializerFeature.DisableCircularReferenceDetect);
         //响应message到前端
         response.getWriter().println(attendances_json);
+    }
+
+    private void responseAttendanceNo(String no, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+        //获得所有考勤
+        Collection<Attendance> attendances = AttendanceService.getInstance().findByStaffNo(no);
+        String attendances_json = JSON.toJSONString(attendances, SerializerFeature.DisableCircularReferenceDetect);
+        //响应message到前端
+        response.getWriter().println(attendances_json);
+
     }
 }

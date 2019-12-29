@@ -1,5 +1,5 @@
 package domain;
-import domain.Education;
+import domain.empower.User;
 
 /**
  * <!-- begin-user-doc -->
@@ -7,7 +7,7 @@ import domain.Education;
  * @generated
  */
 
-public class Staff extends Actor
+public class Staff implements Comparable<Staff>
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ public class Staff extends Actor
 	 * @generated
 	 * @ordered
 	 */
-	
+	private User user;
 	private int id;
 
 	/**
@@ -25,7 +25,7 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
-	private int staffId;
+	private String no;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,7 +97,7 @@ public class Staff extends Actor
 	 * @ordered
 	 */
 	
-	public Job position;
+	public Job job;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +117,12 @@ public class Staff extends Actor
 		super();
 	}
 
-	public Staff(int id, int staffId, String name, String sex,
-				 String idCard, String nativePlace, String phoneNumber, String mail,
-				 Contract contract, Job position, Education education) {
+	public Staff(User user, int id, String no, String name, String sex,
+				 String idCard, String nativePlace, String phoneNumber,
+				 String mail, Contract contract, Job job, Education education) {
+		this.user = user;
 		this.id = id;
-		this.staffId = staffId;
+		this.no = no;
 		this.name = name;
 		this.sex = sex;
 		this.idCard = idCard;
@@ -129,16 +130,20 @@ public class Staff extends Actor
 		this.phoneNumber = phoneNumber;
 		this.mail = mail;
 		this.contract = contract;
-		this.position = position;
+		this.job = job;
 		this.education = education;
+	}
+
+	public User getUser() {
+		return user;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public int getStaffId() {
-		return staffId;
+	public String getNo() {
+		return no;
 	}
 
 	public String getName() {
@@ -169,12 +174,84 @@ public class Staff extends Actor
 		return contract;
 	}
 
-	public Job getPosition() {
-		return position;
+	public Job getJob() {
+		return job;
 	}
 
 	public Education getEducation() {
 		return education;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public void setNativePlace(String nativePlace) {
+		this.nativePlace = nativePlace;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	public void setEducation(Education education) {
+		this.education = education;
+	}
+
+	@Override
+	public int compareTo(Staff o) {
+		return this.id - o.id;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Staff{" +
+				"user=" + user +
+				", id=" + id +
+				", no='" + no + '\'' +
+				", name='" + name + '\'' +
+				", sex='" + sex + '\'' +
+				", idCard='" + idCard + '\'' +
+				", nativePlace='" + nativePlace + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				", mail='" + mail + '\'' +
+				", contract=" + contract +
+				", job=" + job +
+				", education=" + education +
+				'}';
 	}
 }
 

@@ -1,4 +1,5 @@
 package service;
+
 import dao.StaffDao;
 import domain.Staff;
 
@@ -35,5 +36,8 @@ public class StaffService {
 
     public boolean delete(Integer id) throws SQLException {
         return staffDao.getInstance().delete(id);
+    }
+    public Staff findByStaffNo(String no) throws SQLException {
+        return staffDao.findByStaffNo(no);
     }
 }

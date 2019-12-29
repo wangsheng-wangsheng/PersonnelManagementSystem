@@ -129,23 +129,19 @@ public class EvaluateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //读取参数id
         String id_str = request.getParameter("id");
-        String staff_str = request.getParameter("staffId");
+        String no_str = request.getParameter("no");
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
         try {
-            //如果id = null, 表示响应所有考核对象，否则响应id指定的考核对象
-            if (id_str == null&&staff_str==null) {
-                responseEvaluates(response);
-            }else {
-                int id = Integer.parseInt(id_str);
-                if(staff_str==null) {
-                    responseEvaluate(id, response);
-                }else if(staff_str.equals("staffId")){
-                    responseDepSch(id, response);
-                }
-            }
+           if(id_str==null&&no_str==null) {
+               responseEvaluates(response);
+           }else if(id_str!=null&&no_str==null) {
+             int id =   Integer.parseInt(id_str);
+             responseEvaluate(id,response);
+           }else {
+               responseEvaluateNo(no_str,response);
+           }
         }catch (SQLException e){
             message.put("message", "数据库操作异常");
             e.printStackTrace();
@@ -157,15 +153,6 @@ public class EvaluateController extends HttpServlet {
             response.getWriter().println(message);
         }
     }
-    //响应一个考核对象
-    private void responseEvaluate(int id, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-        //根据id查找考核
-        Evaluate evaluate = EvaluateService.getInstance().find(id);
-        String evaluate_json = JSON.toJSONString(evaluate);
-        //响应message到前端
-        response.getWriter().println(evaluate_json);
-    }
     //响应所有考核对象
     private void responseEvaluates(HttpServletResponse response)
             throws ServletException, IOException, SQLException {
@@ -175,11 +162,19 @@ public class EvaluateController extends HttpServlet {
         //响应message到前端
         response.getWriter().println(evaluates_json);
     }
-    //响应staff_id的所有考核对象
-    private void responseDepSch(int staff_id,HttpServletResponse response)
+    //响应id_id的所有考核对象
+    private void responseEvaluate(int id,HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         //获得所有考核
-        Collection<Evaluate> evaluates = EvaluateService.getInstance().findAllByStaff(staff_id);
+        Evaluate evaluates = EvaluateService.getInstance().find(id);
+        String evaluates_json = JSON.toJSONString(evaluates, SerializerFeature.DisableCircularReferenceDetect);
+        //响应message到前端
+        response.getWriter().println(evaluates_json);
+    }
+    private void responseEvaluateNo(String no ,HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+        //获得所有考核
+        Collection<Evaluate> evaluates = EvaluateService.getInstance().findByStaffNo(no);
         String evaluates_json = JSON.toJSONString(evaluates, SerializerFeature.DisableCircularReferenceDetect);
         //响应message到前端
         response.getWriter().println(evaluates_json);

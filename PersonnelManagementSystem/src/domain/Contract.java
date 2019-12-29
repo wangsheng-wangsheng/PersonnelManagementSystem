@@ -7,7 +7,7 @@ package domain;
  * @generated
  */
 
-public class Contract
+public class Contract implements Comparable<Contract>
 {
 
 	/**
@@ -112,6 +112,47 @@ public class Contract
 
 	public String getIfWork() {
 		return ifWork;
+	}
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setSignTimes(int signTimes) {
+        this.signTimes = signTimes;
+    }
+
+    public void setSignStatus(String signStatus) {
+        this.signStatus = signStatus;
+    }
+
+    public void setIfWork(String ifWork) {
+        this.ifWork = ifWork;
+    }
+
+    @Override
+	public int compareTo(Contract o) {
+		return this.id - o.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Contract{" +
+				"id=" + id +
+				", startTime='" + startTime + '\'' +
+				", endTime='" + endTime + '\'' +
+				", signTimes=" + signTimes +
+				", signStatus='" + signStatus + '\'' +
+				", ifWork='" + ifWork + '\'' +
+				'}';
 	}
 }
 

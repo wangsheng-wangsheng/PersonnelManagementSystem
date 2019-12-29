@@ -11,47 +11,37 @@ sex varchar(225) not null,
 age varchar(225) not null
 );
 create table department (
-id int auto_increment,
+id int primary key auto_increment,
 name varchar(255) not null,
 address varchar(255) not null,
 remarks varchar(255),
 leader_id int not null,
-primary key(id,leader_id),
 foreign key(leader_id) references leader(id)
 );
 Create table job(
-id int auto_increment,
+id int primary key auto_increment,
 name varchar(255) not null,
 remarks varchar(255),
 department_id int not null,
-primary key(id,department_id),
 foreign key(department_id) references department(id)
 );
 Create table contract(
 id int primary key auto_increment,
-startTime date not null,
-endTime date not null,
+startTime varchar(255) not null,
+endTime varchar(255) not null,
 signTimes bigint not null,
 signStatus varchar(255) not null,
 ifWork varchar(4) not null
 );
-Create table actor(
-id int primary key auto_increment,
-no varchar(255) not null,
-name varchar(255) not null
-);
 Create table user(
 id int primary key auto_increment,
 username varchar(255) not null,
-password varchar(255),
-actor_id int not null,
-foreign key(actor_id) references actor(id)
+password varchar(255)
 );
 create table admin(
-id int primary key,
+id int primary key auto_increment,
 no varchar(255) not null unique,
-name varchar(255) not null,
-foreign key(id) references actor(id)
+name varchar(255) not null
 );
 create table role(
 id int primary key auto_increment,
@@ -77,7 +67,7 @@ foreign key(role_id) references role(id),
 foreign key(menu_id) references menu(id)
 );
 create table staff(
-id int primary key,
+id int primary key auto_increment,
 no varchar(255) not null unique,
 name varchar(255) not null,
 sex varchar(8) not null,
@@ -88,13 +78,14 @@ mail varchar(255) not null,
 education_id int not null,
 contract_id int not null,
 job_id int not null,
-foreign key(id) references actor(id),
+user_id int not null,
+foreign key(user_id) references user(id),
 foreign key(education_id) references education(id) ,
 foreign key(contract_id) references contract(id) ,
 foreign key(job_id) references job(id)
 );
 create table evaluate (
-id int auto_increment,
+id int primary key auto_increment,
 assessmentStartDate varchar(255) not null,
 assessmentEndDate varchar(255) not null,
 professionalSkill varchar(255) not null,
@@ -102,19 +93,19 @@ workAttitude varchar(255) not null,
 workPerformance varchar(255) not null,
 staff_id int not null,
 comment varchar(255) not null,
-primary key(id,staff_id),
 foreign key(staff_id) references staff(id)
 );
 create table attendance(
-id int auto_increment,
-attendanceTime date not null,
+id int auto_increment primary key,
+startTime varchar(255) not null,
+overTime varchar(255) not null,
+type varchar(255) not null,
 remarks varchar(225) not null,
 staff_id int not null,
-primary key (id,staff_id),
 foreign key(staff_id) references staff(id)
 );
 create table salary(
-id int auto_increment,
+id int primary key auto_increment,
 baseSalary bigint not null,
 overtimePay bigint not null,
 carAllowance  bigint not null,
@@ -123,6 +114,74 @@ pension bigint not null,
 medicalInsurance bigint not null,
 time varchar(255),
 staff_id int not null,
-primary key (id,staff_id),
 foreign key(staff_id) references staff(id)
 );
+create table message
+(
+    id       int auto_increment
+        primary key,
+    remarks  varchar(255) null,
+    username varchar(255) null
+);
+insert into education(name) values("本科");
+insert into education(name) values("博士");
+insert into leader(name,sex,age) values("李三","男","20");
+insert into leader(name,sex,age) values("李华","女","22");
+insert into department(name,address,remarks,leader_id) values("人力资源部","办公楼502","对单位中各类人员形成的资源进行管理的部门",1);
+insert into department(name,address,remarks,leader_id) values("营销部","办公楼403","负责对公司产品价值实现过程中各销售环节实行管理、监督、协调、服务",2);
+insert into contract(startTime,endTime,signTimes,signStatus,ifWork) values("2018-9-10","2019-9-10",1,"在职","是");
+insert into contract(startTime,endTime,signTimes,signStatus,ifWork) values("2018-9-15","2019-9-15",1,"在职","是");
+insert into job(name,remarks,department_id) values ("员工","企业中的行政和业务人员",1);
+insert into job(name,remarks,department_id) values ("员工","企业中的行政和业务人员",2);
+insert into user(username,password) values("YG101","123");
+insert into user(username,password) values("YG102","123");
+insert into user(username,password) values("super","123")
+insert into admin(no,name) values("GL01","赵柳");
+insert into admin(no,name) values("GL02","李文");
+insert into role(description) values("员工");
+insert into role(description) values("管理员");
+insert into role(description) values("超级管理员");
+insert into menu(description,url) values("个人信息","myMessages");
+insert into menu(description,url) values("个人工资","mySalary");
+insert into menu(description,url) values("个人考勤","myAttendance");
+insert into menu(description,url) values("个人考核","myEvaluate");
+insert into menu(description,url) values("部门领导设置","leader");
+insert into menu(description,url) values("部门管理","department");
+insert into menu(description,url) values("职位管理","job");
+insert into menu(description,url) values("考勤管理","attendance");
+insert into menu(description,url) values("用户管理","user");
+insert into menu(description,url) values("员工信息管理","staff");
+insert into menu(description,url) values("考核管理","evaluate");
+insert into menu(description,url) values("工资管理","salary");
+insert into menu(description,url) values("角色管理","superAdminRole");
+insert into menu(description,url) values("权限管理","superAdminMenu");
+insert into userroleass(user_id,role_id) values(1,1);
+insert into userroleass(user_id,role_id) values(1,2);
+insert into userroleass(user_id,role_id) values(2,2);
+insert into userroleass(user_id,role_id) values(3,1);
+insert into userroleass(user_id,role_id) values(3,2);
+insert into userroleass(user_id,role_id) values(3,3);
+insert into rolemenuass(role_id,menu_id) values(1,1);
+insert into rolemenuass(role_id,menu_id) values(1,2);
+insert into rolemenuass(role_id,menu_id) values(1,3);
+insert into rolemenuass(role_id,menu_id) values(1,4);
+insert into rolemenuass(role_id,menu_id) values(2,5);
+insert into rolemenuass(role_id,menu_id) values(2,6);
+insert into rolemenuass(role_id,menu_id) values(2,7);
+insert into rolemenuass(role_id,menu_id) values(2,8);
+insert into rolemenuass(role_id,menu_id) values(2,9);
+insert into rolemenuass(role_id,menu_id) values(2,10);
+insert into rolemenuass(role_id,menu_id) values(2,11);
+insert into rolemenuass(role_id,menu_id) values(2,12);
+insert into rolemenuass(role_id,menu_id) values(3,13);
+insert into rolemenuass(role_id,menu_id) values(3,14);
+insert into staff(no,name,sex,nativePlace,phoneNumber,idCard,mail,education_id, contract_id,job_id,user_id)values("XS01","张三","22","山东省济南市历城区",123456789,370200155122,"155455@163.com",1,1,1,1);
+insert into staff(no,name,sex,nativePlace,phoneNumber,idCard,mail,education_id, contract_id,job_id,user_id) values("XS02","李明","23","山东省济南市长清区",150698922,370658910223,"135640@163.com",2,2,2,2);
+insert into evaluate(assessmentStartDate,assessmentEndDate,professionalSkill,workAttitude,workPerformance,staff_id,comment)values("2018-9-11","2018-10-11","良好","良好","良好",1,"无");
+insert into evaluate(assessmentStartDate,assessmentEndDate,professionalSkill,workAttitude,workPerformance,staff_id,comment)values("2018-10-01","2018-11-01","良好","良好","良好",2,"无");
+insert into attendance(startTime,overTime,type,remarks,staff_id) values("2018-9-12","2018-10-13","正常考勤","无",1);
+insert into attendance(startTime,overTime,type,remarks,staff_id) values("2018-9-12","2018-10-13","缺勤","无",2);
+insert into salary(baseSalary,overtimePay,carAllowance,houseAllowance,pension,medicalInsurance,time,staff_id) values(4000,100,50,40,200,150,"2018-10-12",1);
+insert into salary(baseSalary,overtimePay,carAllowance,houseAllowance,pension,medicalInsurance,time,staff_id) values(4500,120,60,40,200,150,"2018-11-12",2);
+insert into evaluate(assessmentStartDate,assessmentEndDate,professionalSkill,workAttitude,workPerformance,staff_id,comment)values("2018-9-11","2018-10-11","素质全面，脑子灵活，驾驭全局的能力强，有较丰富的领导经验和较高的领导艺术，工作思路清晰，能开拓创新，能团结班子在员和发挥干部的工作积极性。","良好","良好",1,"无");
+insert into evaluate(assessmentStartDate,assessmentEndDate,professionalSkill,workAttitude,workPerformance,staff_id,comment)values("2018-10-01","2018-11-01","品行端正，作风正派，待人诚实，乐于助人，廉洁自律意识较强。","良好","良好",2,"无");
